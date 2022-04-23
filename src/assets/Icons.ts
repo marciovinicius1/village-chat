@@ -1,0 +1,1 @@
+export { ArrowRightSquareFill } from '@styled-icons/bootstrap/ArrowRightSquareFill'

@@ -1,0 +1,11 @@
+export { default as Alert } from "./Alert";
+export { default as Crown } from "./Crown";
+export { default as Cyclop } from "./Cyclop";
+export { default as Hands } from "./Hands";
+export { default as King } from "./King";
+export { default as Knight } from "./Knight";
+export { default as Logovillage } from "./Logovillage";
+export { default as Mage } from "./Mage";
+export { default as Planet } from "./Planet";
+export { default as Sword } from "./Sword";
+export { default as Zombie } from "./Zombie";
