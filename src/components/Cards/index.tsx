@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CardKing from '../SwiperCards/CardKing';
-import CardKnight from '../SwiperCards/CardKnight';
-import CardZombie from '../SwiperCards/CardZombie';
+import CardKing from '../CardsWithSwiper/CardKing';
+import CardKnight from '../CardsWithSwiper/CardKnight';
+import CardZombie from '../CardsWithSwiper/CardZombie';
 
 import Atropos from 'atropos/react';
 

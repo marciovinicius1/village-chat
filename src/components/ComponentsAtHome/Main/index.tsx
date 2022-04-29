@@ -9,7 +9,7 @@ import {
   Block3,
 } from './styles';
 
-import SwiperCards from '../../SwiperCards';
+import SwiperCards from '../../CardsWithSwiper';
 import Cards from '../../Cards';
 
 import ButtonJoinRoom from '../../Buttons/ButtonJoinRoom';

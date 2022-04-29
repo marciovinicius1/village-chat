@@ -5,13 +5,18 @@ import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 const CreateUser: React.FC = () => {
-  const { user, userName, setUserName, userTeam, setUserTeam, signIn } =
+  const { user, userName, setUserName, userZombie, setUserZombie, signIn } =
     useAuth();
 
   const navigate = useNavigate();
 
   async function handleCreateUser(event: FormEvent) {
     event.preventDefault();
+
+    if (userName.trim() === '') {
+      return;
+    }
+
     if (!user) {
       await signIn();
     } else {
@@ -41,7 +46,7 @@ const CreateUser: React.FC = () => {
               <label className="switch">
                 <input
                   type="checkbox"
-                  onChange={(event) => setUserTeam(event.target.checked)}
+                  onChange={(event) => setUserZombie(event.target.checked)}
                 />
                 <span className="slider"></span>
               </label>

@@ -6,24 +6,35 @@ import { Container, FormBox, KingIcon } from './styles';
 
 import { useAuth } from '../../hooks/useAuth';
 
+import { db } from '../../services/firebase';
+import { addDoc, collection } from 'firebase/firestore';
+
 const NewRoom: React.FC = () => {
   const { user, setUser, userName, setUserName, signIn } = useAuth();
   const [roomName, setRoomName] = useState<string>('');
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
-    // criar o usuário adicionando nome e uid no state user - setstate({..., username:userName})
+
     if (!user) {
       await signIn();
-    } else {
-      console.log(user);
+      return;
     }
-    //navigate(sala de chat)
-  }
 
-  console.log(userName);
+    if (roomName.trim() === '') {
+      return;
+    }
+
+    const roomRef = await addDoc(collection(db, 'rooms'), {
+      authorId: user.id,
+      roomName: roomName,
+      amountOfAttack: 0,
+    });
+
+    navigate(`/rooms/${roomRef.id}`);
+  }
 
   return (
     <Container>
@@ -45,7 +56,7 @@ const NewRoom: React.FC = () => {
             <label>Seu nome </label>
             <input
               type="text"
-              placeholder="Digite seu nome "
+              placeholder="Digite seu nome a "
               onChange={(event) => setUserName(event.target.value)}
               value={userName}
               name="username"

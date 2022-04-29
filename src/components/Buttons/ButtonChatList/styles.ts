@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ArrowRightSquareFill } from '../../assets/Icons';
+import { ArrowRightSquareFill } from '../../../assets/Icons';
 
 export const Container = styled.div`
   height: 40px;

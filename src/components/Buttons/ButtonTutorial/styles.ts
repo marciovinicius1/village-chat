@@ -13,6 +13,7 @@ export const Button = styled.button`
   border: none;
   text-decoration: none;
   text-align: center;
+  justify-content: center;
 
   font-size: 1.2rem;
   font-weight: 700;

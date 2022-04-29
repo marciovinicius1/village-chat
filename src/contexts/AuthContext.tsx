@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { auth } from '../services/firebase';
 import { signInAnonymously } from 'firebase/auth';
+import { getAuth, deleteUser } from 'firebase/auth';
 
 type AuthContextProps = {
   children: ReactNode;
@@ -13,16 +14,18 @@ type AuthContextType = {
   userName: string;
   setUserName: (value: string) => void;
 
-  userTeam: boolean;
-  setUserTeam: (value: boolean) => void;
+  userZombie: boolean;
+  setUserZombie: (value: boolean) => void;
 
   signIn: () => Promise<void>;
+
+  deleteCurrentUser: () => void;
 };
 
 type User = {
   id: string;
   name: string;
-  team: boolean;
+  zombie: boolean;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -30,7 +33,7 @@ export const AuthContext = createContext({} as AuthContextType);
 export function AuthContextProvider(props: AuthContextProps) {
   const [user, setUser] = useState<User>();
   const [userName, setUserName] = useState<string>('');
-  const [userTeam, setUserTeam] = useState<boolean>(false);
+  const [userZombie, setUserZombie] = useState<boolean>(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -44,7 +47,7 @@ export function AuthContextProvider(props: AuthContextProps) {
         setUser({
           id: uid,
           name: userName,
-          team: userTeam,
+          zombie: userZombie,
         });
       }
     });
@@ -66,9 +69,14 @@ export function AuthContextProvider(props: AuthContextProps) {
       setUser({
         id: uid,
         name: userName,
-        team: userTeam,
+        zombie: userZombie,
       });
     }
+  }
+
+  function deleteCurrentUser() {
+    const currentUser = auth.currentUser;
+    currentUser?.delete();
   }
 
   return (
@@ -78,9 +86,10 @@ export function AuthContextProvider(props: AuthContextProps) {
         setUser,
         userName,
         setUserName,
-        userTeam,
-        setUserTeam,
+        userZombie,
+        setUserZombie,
         signIn,
+        deleteCurrentUser,
       }}
     >
       {props.children}
