@@ -12,6 +12,10 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  & + & {
+    margin-top: 4px;
+  }
+
   h1 {
     font-size: 1.2rem;
     color: var(--dark);
