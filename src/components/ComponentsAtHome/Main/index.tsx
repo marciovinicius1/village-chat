@@ -7,6 +7,7 @@ import {
   Block2,
   AlertIcon,
   Block3,
+  CastleImg,
 } from './styles';
 
 import SwiperCards from '../../CardsWithSwiper';
@@ -20,6 +21,7 @@ import LogoVillage from '../../LogoVillage';
 const Main: React.FC = () => {
   return (
     <Container>
+      <CastleImg />
       <LogoVillage />
 
       <Block1>

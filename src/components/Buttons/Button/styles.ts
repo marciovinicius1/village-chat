@@ -4,7 +4,7 @@ export const ButtonStyle = styled.button`
   height: 40px;
   width: 200px;
   background-color: var(--primary);
-  color: var(--dark);
+  color: var(--gray);
   border: none;
   text-decoration: none;
   padding: 16px 20px;
@@ -24,6 +24,6 @@ export const ButtonStyle = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: var(--white);
+    color: var(--yellow);
   }
 `;

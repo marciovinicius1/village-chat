@@ -19,8 +19,9 @@ const CreateUser: React.FC = () => {
 
     if (!user) {
       await signIn();
+      navigate('/rooms/select-chat-room');
     } else {
-      console.log(user);
+      navigate('/rooms/select-chat-room');
     }
   }
 

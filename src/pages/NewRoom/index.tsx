@@ -56,7 +56,7 @@ const NewRoom: React.FC = () => {
             <label>Seu nome </label>
             <input
               type="text"
-              placeholder="Digite seu nome a "
+              placeholder="Digite seu nome"
               onChange={(event) => setUserName(event.target.value)}
               value={userName}
               name="username"

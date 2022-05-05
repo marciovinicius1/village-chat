@@ -21,7 +21,7 @@ function App() {
               path="/rooms/select-chat-room"
               element={<SelectChatRoom />}
             />
-            <Route path="/rooms/:id" element={<ChatRoom />} />
+            <Route path="/rooms/id/:id" element={<ChatRoom />} />
           </Routes>
         </AuthContextProvider>
       </Router>

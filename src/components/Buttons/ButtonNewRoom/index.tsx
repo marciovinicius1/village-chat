@@ -5,6 +5,8 @@ import { useAuth } from '../../../hooks/useAuth';
 import { db } from '../../../services/firebase';
 import { Button, CrownIcon } from './styles';
 
+import { motion } from 'framer-motion';
+
 const ButtonCreateRoom: React.FC = () => {
   const navigate = useNavigate();
   const { user, deleteCurrentUser } = useAuth();
@@ -13,7 +15,7 @@ const ButtonCreateRoom: React.FC = () => {
     if (!user) {
       navigate('/rooms/new');
     } else {
-      // if user were logged
+      // if user are logged
       const roomRef = query(
         collection(db, 'rooms'),
         where('authorId', '==', user.id)
@@ -27,13 +29,17 @@ const ButtonCreateRoom: React.FC = () => {
         deleteCurrentUser();
         navigate('/rooms/new');
       } else {
-        navigate(`/rooms/${idUserRoom}`);
+        navigate(`/rooms/id/${idUserRoom}`);
       }
     }
   }
 
   return (
-    <Button onClick={() => handleNewRoom()}>
+    <Button
+      as={motion.div}
+      whileHover={{ scale: 1.1 }}
+      onClick={() => handleNewRoom()}
+    >
       <CrownIcon />
       Crie sua sala
     </Button>

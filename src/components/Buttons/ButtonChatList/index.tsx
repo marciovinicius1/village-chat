@@ -13,7 +13,7 @@ const Chat: React.FC<ChatButtonProps> = (id) => {
   const navigation = useNavigate();
 
   function handleJoinRoom() {
-    navigation(`/rooms/${id.id}`);
+    navigation(`/rooms/id/${id.id}`);
   }
 
   return (

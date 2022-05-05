@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { database, db } from '../../services/firebase';
-import {
-  collection,
-  getDocs,
-  query,
-  onSnapshot,
-  doc,
-} from 'firebase/firestore';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { db } from '../../services/firebase';
+import { collection, onSnapshot } from 'firebase/firestore';
 
 import { Container, ChatList } from './styles';
 import Chat from '../../components/Buttons/ButtonChatList';
-import { DockBottom } from 'styled-icons/boxicons-regular';
+import ButtonLogOut from '../../components/Buttons/ButtonLogOut';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from '../../hooks/useAuth';
 
 type ChatProps = {
   id: string;
@@ -23,9 +22,15 @@ type RoomParams = {
 };
 
 const SelectChatRoom: React.FC = () => {
+  const { user } = useAuth();
+  const navigation = useNavigate();
   const [chats, setChats] = useState<ChatProps[]>([]);
   const params = useParams<RoomParams>();
   const roomId = params.id;
+
+  if (!user) {
+    navigation('/');
+  }
 
   useEffect(() => {
     onSnapshot(collection(db, 'rooms'), (snapshot) => {
@@ -46,18 +51,20 @@ const SelectChatRoom: React.FC = () => {
     });
   }, [roomId]);
 
-  console.log(chats);
-
   return (
-    <Container>
-      <ChatList>
-        <div>
-          {chats.map((chat) => {
-            return <Chat key={chat.id} title={chat.roomName} id={chat.id} />;
-          })}
-        </div>
-      </ChatList>
-    </Container>
+    <>
+      <Container>
+        <h1 className="title">Selecione uma sala: </h1>
+        <ChatList>
+          <div>
+            {chats.map((chat) => {
+              return <Chat key={chat.id} title={chat.roomName} id={chat.id} />;
+            })}
+          </div>
+        </ChatList>
+      </Container>
+      <ButtonLogOut />
+    </>
   );
 };
 

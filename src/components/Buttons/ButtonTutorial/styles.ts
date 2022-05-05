@@ -6,9 +6,9 @@ export const Button = styled.button`
   gap: 10px;
   align-items: center;
 
-  height: 3.6em;
-  width: 12em;
-  background-color: var(--dark);
+  height: 3.6rem;
+  width: 13rem;
+  background-color: var(--primary);
   color: var(--gray);
   border: none;
   text-decoration: none;
@@ -24,7 +24,11 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: var(--purple);
+    color: var(--yellow);
+  }
+
+  @media (max-width: 1200px) {
+    background-color: var(--dark);
   }
 `;
 

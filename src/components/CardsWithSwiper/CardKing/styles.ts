@@ -4,6 +4,7 @@ import { King } from '../../../assets/svgr';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  background: none;
 `;
 
 export const Card = styled.div`

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { SVGProps } from "react";
+import * as React from 'react';
+import { SVGProps } from 'react';
 interface SVGRProps {
   title?: string;
   titleId?: string;
@@ -14,6 +14,8 @@ const SvgCyclop = ({
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
+    x={0}
+    y={0}
     viewBox="0 0 512 512"
     xmlSpace="preserve"
     aria-labelledby={titleId}
