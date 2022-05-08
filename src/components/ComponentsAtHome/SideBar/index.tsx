@@ -1,12 +1,9 @@
-import React from 'react';
-import ButtonTutorial from '../../Buttons/ButtonTutorial';
-import ButtonNewRoom from '../../Buttons/ButtonNewRoom';
-import ButtonJoinRoom from '../../Buttons/ButtonJoinRoom';
+import React from "react";
+import ButtonTutorial from "../../Buttons/ButtonTutorial";
+import ButtonNewRoom from "../../Buttons/ButtonNewRoom";
+import ButtonJoinRoom from "../../Buttons/ButtonJoinRoom";
 
-import { Container, Block } from './styles';
-import ButtonCredits from '../../Buttons/ButtonCredits';
-
-import { motion } from 'framer-motion';
+import { Container, Block } from "./styles";
 
 const SideBar: React.FC = () => {
   return (
@@ -15,7 +12,6 @@ const SideBar: React.FC = () => {
         <ButtonNewRoom />
         <ButtonJoinRoom />
         <ButtonTutorial />
-        <ButtonCredits />
       </Block>
     </Container>
   );

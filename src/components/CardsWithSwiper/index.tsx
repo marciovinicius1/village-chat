@@ -1,22 +1,20 @@
-import React from 'react';
+import React from "react";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Container } from './styles';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import CardZombie from './CardZombie';
-import CardKing from './CardKing';
-import CardKnight from './CardKnight';
+import CardZombie from "./CardZombie";
+import CardKing from "./CardKing";
+import CardKnight from "./CardKnight";
 
 const SwiperCards: React.FC = () => {
   return (
-    <Container>
+    <div className=" md:hidden w-full h-auto mt-5 mb-8">
       <Swiper
         modules={[EffectFade, Autoplay, Navigation, Pagination]}
         spaceBetween={50}
         slidesPerView={1}
         centeredSlides
-        effect={'fade'}
+        effect={"fade"}
         loop={true}
         autoplay={{
           delay: 2000,
@@ -36,7 +34,7 @@ const SwiperCards: React.FC = () => {
           <CardZombie />
         </SwiperSlide>
       </Swiper>
-    </Container>
+    </div>
   );
 };
 

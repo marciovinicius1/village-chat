@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2538.8 1914.6" style="enable-background:new 0 0 2538.8 1914.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:#EFEFEF;}
+	.st3{fill:url(#SVGID_3_);}
+	.st4{fill:url(#SVGID_4_);}
+</style>
+<g id="Layer_6">
+	<g id="Layer_4">
+		<g>
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="182.3694" y1="1899.5814" x2="175.0264" y2="426.4836">
+				<stop  offset="0" style="stop-color:#EFEFEF"/>
+				<stop  offset="0.4352" style="stop-color:#EDECED"/>
+				<stop  offset="0.7104" style="stop-color:#E6E4E6"/>
+				<stop  offset="0.9406" style="stop-color:#DAD5DA"/>
+				<stop  offset="1" style="stop-color:#D6D0D6"/>
+			</linearGradient>
+			<polygon class="st0" points="9.9,427.3 11.8,1899.2 348.5,1898.8 347,697.4 347,697.4 			"/>
+			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="1731.6294" y1="886.6532" x2="1731.6294" y2="548.372">
+				<stop  offset="0" style="stop-color:#EFEFEF"/>
+				<stop  offset="1" style="stop-color:#D6D0D6"/>
+			</linearGradient>
+			<polygon class="st1" points="1562.5,1009.8 1900.8,397.2 1562.5,672.4 			"/>
+			<polygon class="st2" points="1901.3,11.7 1558.5,270.2 953.1,737.1 346.4,271.7 9.4,13.5 9.9,427.3 347,697.4 347,697.4 
+				347,697.1 678.6,950 953.6,1162.5 1228.1,949.3 1562.5,672.1 1562.5,672.4 1900.8,397.2 1901.1,396.7 			"/>
+		</g>
+		<g>
+			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1563.0151" y1="955.2936" x2="2523.1738" y2="955.2936">
+				<stop  offset="0" style="stop-color:#FBD07C"/>
+				<stop  offset="1" style="stop-color:#F7F779"/>
+			</linearGradient>
+			<path class="st3" d="M2523.2,11.7l-172,337l-787.3,1550.2L1563,1158L2191.5,12.1L2523.2,11.7z"/>
+		</g>
+		<g>
+			<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="1110.4597" y1="155.9342" x2="1775.6259" y2="155.9342">
+				<stop  offset="0" style="stop-color:#FBD07C"/>
+				<stop  offset="1" style="stop-color:#F7F779"/>
+			</linearGradient>
+			<path class="st4" d="M1775.6,11.7l-379.5,288.5L1110.5,11.7H1775.6z"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_2">
+</g>
+</svg>

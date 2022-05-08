@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Container,
@@ -8,15 +8,15 @@ import {
   AlertIcon,
   Block3,
   CastleImg,
-} from './styles';
+} from "./styles";
 
-import SwiperCards from '../../CardsWithSwiper';
-import Cards from '../../Cards';
+import SwiperCards from "../../CardsWithSwiper";
+import Cards from "../../Cards";
 
-import ButtonJoinRoom from '../../Buttons/ButtonJoinRoom';
-import ButtonCreateRoom from '../../Buttons/ButtonNewRoom';
-import ButtonTutorial from '../../Buttons/ButtonTutorial';
-import LogoVillage from '../../LogoVillage';
+import ButtonJoinRoom from "../../Buttons/ButtonJoinRoom";
+import ButtonCreateRoom from "../../Buttons/ButtonNewRoom";
+import ButtonTutorial from "../../Buttons/ButtonTutorial";
+import LogoVillage from "../../LogoVillage";
 
 const Main: React.FC = () => {
   return (
