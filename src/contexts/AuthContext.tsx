@@ -1,7 +1,7 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
-import { auth } from '../services/firebase';
-import { signInAnonymously } from 'firebase/auth';
-import { getAuth, deleteUser } from 'firebase/auth';
+import { createContext, ReactNode, useEffect, useState } from "react";
+import { auth } from "../services/firebase";
+import { signInAnonymously } from "firebase/auth";
+import { getAuth, deleteUser } from "firebase/auth";
 
 type AuthContextProps = {
   children: ReactNode;
@@ -31,8 +31,8 @@ type User = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProps) {
-  const [user, setUser] = useState<User>();
-  const [userName, setUserName] = useState<string>('');
+  const [user, setUser] = useState<User | undefined>();
+  const [userName, setUserName] = useState<string>("");
   const [userZombie, setUserZombie] = useState<boolean>(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export function AuthContextProvider(props: AuthContextProps) {
         const { uid } = user;
 
         if (!uid) {
-          throw new Error('Internal login ERROR!');
+          throw new Error("Internal login ERROR!");
         }
 
         setUser({
@@ -64,7 +64,7 @@ export function AuthContextProvider(props: AuthContextProps) {
       const { uid } = result.user;
 
       if (!uid) {
-        throw new Error('Internal Login Error');
+        throw new Error("Internal Login Error");
       }
       setUser({
         id: uid,
@@ -77,6 +77,7 @@ export function AuthContextProvider(props: AuthContextProps) {
   function deleteCurrentUser() {
     const currentUser = auth.currentUser;
     currentUser?.delete();
+    setUser(undefined);
   }
 
   return (

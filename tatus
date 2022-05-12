@@ -1,0 +1,29 @@
+[33mcommit 156453d3ec4c48fe2346af69f14d4ef34b4a7916[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Márcio Vinícius de Jesus Santos <marcioviniciusdev@gmail.com>
+Date:   Sun May 8 17:25:46 2022 -0300
+
+    added tailwind at home and buttons
+
+[33mcommit bb1961a41af0920ab55059c431befaf13ae97e61[m
+Author: Márcio Vinícius de Jesus Santos <marcioviniciusdev@gmail.com>
+Date:   Thu May 5 16:28:27 2022 -0300
+
+    before apply tailwindcss
+
+[33mcommit 0599a9cbaf5be6a8e4dddf692fb0fdfc493e6ed8[m
+Author: Márcio Vinícius de Jesus Santos <marcioviniciusdev@gmail.com>
+Date:   Sat Apr 30 16:35:47 2022 -0300
+
+    chat list room completed
+
+[33mcommit 841544da9275ff2ed080edc9914fdba19c12ea65[m
+Author: Márcio Vinícius de Jesus Santos <marcioviniciusdev@gmail.com>
+Date:   Fri Apr 29 18:10:28 2022 -0300
+
+    select chat room
+
+[33mcommit b5752127c9586a5c75985000d9d72300d04690b9[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Márcio Vinícius de Jesus Santos <marcioviniciusdev@gmail.com>
+Date:   Sat Apr 23 15:41:05 2022 -0300
+
+    initial commit

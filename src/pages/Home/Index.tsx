@@ -8,13 +8,12 @@ import handsBgIcon from "../../assets/svg/handsBg.svg";
 import ButtonJoinRoom from "../../components/Buttons/ButtonJoinRoom";
 import ButtonNewRoom from "../../components/Buttons/ButtonNewRoom";
 import ButtonTutorial from "../../components/Buttons/ButtonTutorial";
-import Cards from "../../components/Cards";
 import { ButtonCredits } from "../../components/Buttons/ButtonCredits";
-import CardsWithSwiper from "../../components/CardsWithSwiper";
+import Cards from "../../components/Cards";
 
 // import { Container } from './styles';
 
-const Home2: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div className="flex">
       <div
@@ -52,7 +51,6 @@ const Home2: React.FC = () => {
           </h1>
         </section>
 
-        <CardsWithSwiper />
         <Cards />
 
         <div
@@ -67,7 +65,7 @@ const Home2: React.FC = () => {
 
       <div
         id="Sidebar-section"
-        className="hidden lg:flex lg:h-screen bg-bg-pattern drop-shadow-2xl bg-p-dark bg-repea bg-center bg-[length:140px] lg:w-1/4 items-center justify-center relative"
+        className="hidden lg:flex lg:h-screen bg-bg-pattern drop-shadow-2xl bg-p-dark bg-center bg-[length:140px] lg:w-1/4 items-center justify-center relative"
       >
         <section id="Buttons-desktop" className=" flex flex-col gap-5">
           <ButtonNewRoom />
@@ -81,4 +79,4 @@ const Home2: React.FC = () => {
   );
 };
 
-export default Home2;
+export default Home;

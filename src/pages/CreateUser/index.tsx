@@ -1,8 +1,8 @@
-import React, { FormEvent } from 'react';
-import { Button } from '../../components/Buttons/Button';
-import { Container, FormBox, KnightIcon, Toggle, ZombieIcon } from './styles';
-import { useAuth } from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import React, { FormEvent } from "react";
+import { Button } from "../../components/Buttons/Button";
+import { Container, FormBox, KnightIcon, Toggle, ZombieIcon } from "./styles";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CreateUser: React.FC = () => {
   const { user, userName, setUserName, userZombie, setUserZombie, signIn } =
@@ -13,15 +13,15 @@ const CreateUser: React.FC = () => {
   async function handleCreateUser(event: FormEvent) {
     event.preventDefault();
 
-    if (userName.trim() === '') {
+    if (userName.trim() === "") {
       return;
     }
 
     if (!user) {
       await signIn();
-      navigate('/rooms/select-chat-room');
+      navigate("/rooms/select-chat-room");
     } else {
-      navigate('/rooms/select-chat-room');
+      navigate("/rooms/select-chat-room");
     }
   }
 
@@ -30,10 +30,10 @@ const CreateUser: React.FC = () => {
       <FormBox>
         <form onSubmit={handleCreateUser}>
           <div>
-            <label>Nome da Sala</label>
+            <label>Nome de usuário</label>
             <input
               type="text"
-              placeholder="Digite o nome da sala"
+              placeholder="Digite o nome seu nome"
               onChange={(event) => setUserName(event.target.value)}
               value={userName}
               name="username"
@@ -41,7 +41,7 @@ const CreateUser: React.FC = () => {
             />
           </div>
           <div>
-            <label>Escolha seu lado:</label>
+            <label>Escolha seu lado</label>
             <Toggle>
               <KnightIcon />
               <label className="switch">

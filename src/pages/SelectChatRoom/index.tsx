@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { db } from '../../services/firebase';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from "../../services/firebase";
+import { collection, onSnapshot } from "firebase/firestore";
 
-import { Container, ChatList } from './styles';
-import Chat from '../../components/Buttons/ButtonChatList';
-import ButtonLogOut from '../../components/Buttons/ButtonLogOut';
+import { Container, ChatList } from "./styles";
+import Chat from "../../components/Buttons/ButtonChatList";
+import ButtonLogOut from "../../components/Buttons/ButtonLogout";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useAuth } from '../../hooks/useAuth';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../../hooks/useAuth";
 
 type ChatProps = {
   id: string;
@@ -29,11 +29,11 @@ const SelectChatRoom: React.FC = () => {
   const roomId = params.id;
 
   if (!user) {
-    navigation('/');
+    navigation("/");
   }
 
   useEffect(() => {
-    onSnapshot(collection(db, 'rooms'), (snapshot) => {
+    onSnapshot(collection(db, "rooms"), (snapshot) => {
       const changes = snapshot.docChanges();
 
       const allRooms = changes.map((data) => {
@@ -54,7 +54,9 @@ const SelectChatRoom: React.FC = () => {
   return (
     <>
       <Container>
-        <h1 className="title">Selecione uma sala: </h1>
+        <h1 className="text-2xl font-bold text-p-white mb-2">
+          Selecione uma sala:{" "}
+        </h1>
         <ChatList>
           <div>
             {chats.map((chat) => {
