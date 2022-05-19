@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
@@ -6,7 +6,7 @@ import { db } from "../../services/firebase";
 
 import kingIcon from "../../assets/svg/king.svg";
 
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 
 import ModalWrapper from "../Modals/Wrapper/ModalWrapper";
 import NewRoomModal from "../Modals/NewRoomModal";

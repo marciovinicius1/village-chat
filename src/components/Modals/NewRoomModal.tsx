@@ -1,5 +1,4 @@
 import React, { useState, FormEvent } from "react";
-import { Button } from "../../components/Buttons/Button";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import kingIcon from "../../assets/svg/king.svg";
@@ -9,7 +8,7 @@ import { db } from "../../services/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 const Modals: React.FC = () => {
-  const { user, setUser, userName, setUserName, signIn } = useAuth();
+  const { user, userName, setUserName, signIn } = useAuth();
   const [roomName, setRoomName] = useState<string>("");
 
   const navigate = useNavigate();
@@ -30,9 +29,10 @@ const Modals: React.FC = () => {
       authorId: user.id,
       roomName: roomName,
       amountOfAttack: 0,
+      users: [],
     });
 
-    navigate(`/rooms/${roomRef.id}`);
+    navigate(`/rooms/id/${roomRef.id}`);
   }
 
   return (
@@ -70,7 +70,7 @@ const Modals: React.FC = () => {
             className="mb-6 w-60 h-10 p-2 rounded-md font-medium text-lg focus:border-p-yellow focus:ring-p-lilac focus:ring focus:outline-none"
           />
         </div>
-        <DefaultButton>Teste</DefaultButton>
+        <DefaultButton type="submit">Criar sala</DefaultButton>
       </form>
     </div>
   );

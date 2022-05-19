@@ -1,32 +1,17 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import { auth } from "../services/firebase";
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useState,
+  SetStateAction,
+} from "react";
+import { auth, db } from "../../services/firebase";
 import { signInAnonymously } from "firebase/auth";
 import { getAuth, deleteUser } from "firebase/auth";
-
-type AuthContextProps = {
-  children: ReactNode;
-};
-
-type AuthContextType = {
-  user: User | undefined;
-  setUser: (value: User) => void;
-
-  userName: string;
-  setUserName: (value: string) => void;
-
-  userZombie: boolean;
-  setUserZombie: (value: boolean) => void;
-
-  signIn: () => Promise<void>;
-
-  deleteCurrentUser: () => void;
-};
-
-type User = {
-  id: string;
-  name: string;
-  zombie: boolean;
-};
+import { firebase, database } from "../../services/firebase";
+import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
+import { AuthContextType, AuthContextProps, User } from "./types";
+import { setUserLocalStorage, getUserLocalStorage } from "./utils";
 
 export const AuthContext = createContext({} as AuthContextType);
 
@@ -44,11 +29,8 @@ export function AuthContextProvider(props: AuthContextProps) {
           throw new Error("Internal login ERROR!");
         }
 
-        setUser({
-          id: uid,
-          name: userName,
-          zombie: userZombie,
-        });
+        const payload = getUserLocalStorage();
+        setUser(payload);
       }
     });
 
@@ -66,7 +48,14 @@ export function AuthContextProvider(props: AuthContextProps) {
       if (!uid) {
         throw new Error("Internal Login Error");
       }
+
       setUser({
+        id: uid,
+        name: userName,
+        zombie: userZombie,
+      });
+
+      setUserLocalStorage({
         id: uid,
         name: userName,
         zombie: userZombie,
@@ -84,7 +73,6 @@ export function AuthContextProvider(props: AuthContextProps) {
     <AuthContext.Provider
       value={{
         user,
-        setUser,
         userName,
         setUserName,
         userZombie,

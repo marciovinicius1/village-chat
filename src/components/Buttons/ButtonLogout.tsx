@@ -17,7 +17,7 @@ export function ButtonLogOut(props: ButtonProps) {
   return (
     <div className=" fixed bottom-4 right-4 md:bottom-8 md:right-8  flex flex-col items-end">
       <button
-        onClick={handleLogOut}
+        onClick={() => handleLogOut()}
         className=" bg-p-lilac px-4 py-8 h-12 rounded-md shadow-xl text-p-white flex items-center group"
       >
         <SignOut className="h-8 w-8 md:h-10 md:w-10" />

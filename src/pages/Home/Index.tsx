@@ -5,15 +5,18 @@ import alertIcon from "../../assets/svg/alert.svg";
 import castleIcon from "../../assets/svg/castle.svg";
 import handsBgIcon from "../../assets/svg/handsBg.svg";
 
+import { useAuth } from "../../hooks/useAuth";
+
 import ButtonJoinRoom from "../../components/Buttons/ButtonJoinRoom";
 import ButtonNewRoom from "../../components/Buttons/ButtonNewRoom";
 import ButtonTutorial from "../../components/Buttons/ButtonTutorial";
 import { ButtonCredits } from "../../components/Buttons/ButtonCredits";
 import Cards from "../../components/Cards";
 
-// import { Container } from './styles';
-
 const Home: React.FC = () => {
+  const { user } = useAuth();
+  console.log(user);
+
   return (
     <div className="flex">
       <div
@@ -53,10 +56,7 @@ const Home: React.FC = () => {
 
         <Cards />
 
-        <div
-          id="Buttons-mobile"
-          className="flex flex-col gap-2.5 lg:hidden z-10"
-        >
+        <div id="Buttons-mobile" className="flex flex-col gap-2.5 lg:hidden">
           <ButtonNewRoom />
           <ButtonJoinRoom />
           <ButtonTutorial />

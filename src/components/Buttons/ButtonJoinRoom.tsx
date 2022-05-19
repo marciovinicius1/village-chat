@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 
 import swordIcon from "../../assets/svg/sword.svg";
 
@@ -10,7 +10,6 @@ import ModalWrapper from "../../components/Modals/Wrapper/ModalWrapper";
 import SelectChatRoomModal from "../Modals/SelectChatRoomModal";
 
 const ButtonCreateRoom: React.FC = () => {
-  const navigate = useNavigate();
   const { user } = useAuth();
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -49,7 +48,7 @@ const ButtonCreateRoom: React.FC = () => {
 
       <Dialog open={isModalOpen} onClose={handleJoinRoom}>
         <Dialog.Panel>
-          <button
+          <div
             className="fixed inset-0 bg-black bg-opacity-40"
             onClick={closeModal}
           />

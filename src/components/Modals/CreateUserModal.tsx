@@ -25,18 +25,18 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
     }
 
     if (!user) {
-      await signIn();
-      navigateToSelectChatList();
+      await signIn().then(navigateToSelectChatList);
     } else {
       console.log(user);
       navigateToSelectChatList();
     }
   }
+
   return (
     <div>
       <div>
         <form
-          onSubmit={handleCreateUser}
+          onSubmit={navigateToSelectChatList}
           className="flex flex-col justify-center items-center"
         >
           <div className="flex flex-col">
@@ -83,8 +83,8 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
               />
             </div>
           </div>
-          <DefaultButton type="submit" onClick={() => navigateToSelectChatList}>
-            Teste
+          <DefaultButton type="submit" onClick={handleCreateUser}>
+            Entrar em uma sala
           </DefaultButton>
         </form>
       </div>

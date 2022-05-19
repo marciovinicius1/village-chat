@@ -9,7 +9,6 @@ import ButtonLogOut from "../Buttons/ButtonLogout";
 import ModalWrapper from "./Wrapper/ModalWrapper";
 import { Dialog } from "@headlessui/react";
 
-import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../../hooks/useAuth";
 
 type ChatProps = {
@@ -35,12 +34,8 @@ const SelectChatRoomModal: React.FC<SelectChatRoomModalProps> = ({
   const params = useParams<RoomParams>();
   const roomId = params.id;
 
-  if (!user) {
-    //
-  }
-
   useEffect(() => {
-    onSnapshot(collection(db, "rooms"), (snapshot) => {
+    const unsubscribe = onSnapshot(collection(db, "rooms"), (snapshot) => {
       const changes = snapshot.docChanges();
 
       const allRooms = changes.map((data) => {
@@ -56,6 +51,10 @@ const SelectChatRoomModal: React.FC<SelectChatRoomModalProps> = ({
 
       setChats(parsedRooms);
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, [roomId]);
 
   return (
