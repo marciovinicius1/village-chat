@@ -1,5 +1,11 @@
 import React, { FormEvent, useState } from "react";
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  updateDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "../../services/firebase";
 
 import { PaperPlaneTilt, FireSimple } from "phosphor-react";
@@ -38,6 +44,7 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
         authorName: user?.name,
         authorMessageId: user?.id,
         zombie: user?.zombie,
+        createdAt: serverTimestamp(),
       }
     );
   }

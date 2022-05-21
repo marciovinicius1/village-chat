@@ -49,7 +49,7 @@ const Modals: React.FC = () => {
           <input
             type="text"
             placeholder="Digite o nome da sala"
-            onChange={(event) => setRoomName(event.target.value)}
+            onChange={(e) => setRoomName(e.target.value)}
             value={roomName}
             name="roomname"
             required
@@ -63,7 +63,7 @@ const Modals: React.FC = () => {
           <input
             type="text"
             placeholder="Digite seu nome"
-            onChange={(event) => setUserName(event.target.value)}
+            onChange={(e) => setUserName(e.target.value)}
             value={userName}
             name="username"
             required

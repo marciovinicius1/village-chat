@@ -26,7 +26,7 @@ const cardsTypes = {
 const SwiperCards: React.FC = () => {
   return (
     <>
-      <div className=" md:hidden w-full h-auto mt-5 mb-8">
+      <div className=" md:hidden w-full h-auto mt-5 mb-8 z-0">
         <Swiper
           modules={[EffectFade, Autoplay, Navigation, Pagination]}
           spaceBetween={50}

@@ -1,19 +1,36 @@
 import React from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { useChat } from "../../hooks/useChat";
 import MainMessage from "./MainMessage";
-import MessageForm from "./MessageForm";
-// import { Container } from './styles';
+import OtherUsersMessage from "./OtherUsersMessage";
 
 type ChatFeedProps = {
-  chats: string;
-  activeChat: string;
-  userName: string;
-  Messages: string;
+  roomId: string | undefined;
+  adminId: string | undefined;
 };
 
 const ChatFeed: React.FC<ChatFeedProps> = (props) => {
-  const { chats, activeChat, userName, Messages } = props;
+  const { roomId, adminId } = props;
+  const { snapshotMessages } = useChat(roomId);
+  const { user } = useAuth();
 
-  return <div />;
+  return (
+    <div>
+      {snapshotMessages?.map((msg) => {
+        const { id, authorMessageId, authorName, text } = msg;
+
+        if (user?.id == authorMessageId) {
+          return <MainMessage key={id} message={text} />;
+        } else {
+          <OtherUsersMessage
+            message="Parabéns amigo voce e mto legal"
+            authorName={authorName}
+            adminId={adminId}
+          />;
+        }
+      })}
+    </div>
+  );
 };
 
 export default ChatFeed;

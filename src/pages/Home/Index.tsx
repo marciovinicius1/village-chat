@@ -5,8 +5,6 @@ import alertIcon from "../../assets/svg/alert.svg";
 import castleIcon from "../../assets/svg/castle.svg";
 import handsBgIcon from "../../assets/svg/handsBg.svg";
 
-import { useAuth } from "../../hooks/useAuth";
-
 import ButtonJoinRoom from "../../components/Buttons/ButtonJoinRoom";
 import ButtonNewRoom from "../../components/Buttons/ButtonNewRoom";
 import ButtonTutorial from "../../components/Buttons/ButtonTutorial";
@@ -14,9 +12,6 @@ import { ButtonCredits } from "../../components/Buttons/ButtonCredits";
 import Cards from "../../components/Cards";
 
 const Home: React.FC = () => {
-  const { user } = useAuth();
-  console.log(user);
-
   return (
     <div className="flex">
       <div

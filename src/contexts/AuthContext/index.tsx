@@ -9,7 +9,7 @@ import { auth, db } from "../../services/firebase";
 import { signInAnonymously } from "firebase/auth";
 import { getAuth, deleteUser } from "firebase/auth";
 import { firebase, database } from "../../services/firebase";
-import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
+import { collection, setDoc, doc } from "firebase/firestore";
 import { AuthContextType, AuthContextProps, User } from "./types";
 import { setUserLocalStorage, getUserLocalStorage } from "./utils";
 
@@ -59,6 +59,11 @@ export function AuthContextProvider(props: AuthContextProps) {
         id: uid,
         name: userName,
         zombie: userZombie,
+      });
+
+      const createUserDb = await setDoc(doc(db, "users", `${uid}`), {
+        userName,
+        userZombie,
       });
     }
   }
