@@ -1,8 +1,10 @@
 import React from "react";
 import { ArrowElbowDownRight } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth";
+
+import { firebase } from "../../services/firebase";
 
 import { db } from "../../services/firebase";
 
@@ -18,13 +20,8 @@ const ButtonChatList: React.FC<ChatButtonProps> = (id) => {
   async function handleJoinRoom() {
     navigation(`/rooms/id/${id.id}`);
 
-    const roomRef = doc(db, "rooms", id.id);
-    await updateDoc(roomRef, {
-      users: arrayUnion({
-        id: user?.id,
-        name: user?.name,
-        zombie: user?.zombie,
-      }),
+    await updateDoc(doc(db, "users", `${user?.id}`), {
+      roomsHistory: arrayUnion(id),
     });
   }
 

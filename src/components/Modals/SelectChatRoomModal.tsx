@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ButtonChatList from "../Buttons/ButtonChatList";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { db } from "../../services/firebase";
 import { collection, onSnapshot } from "firebase/firestore";

@@ -15,7 +15,7 @@ export function useChat(roomId: string | undefined) {
   useEffect(() => {
     const q = query(
       collection(db, "rooms", `${roomId}`, "messages"),
-      orderBy("createdAt"),
+      orderBy("createdAt", "asc"),
       limit(50)
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {

@@ -11,13 +11,7 @@ export type CurrentRoomProps = {
   users: User[];
 };
 
-type RoomParams = {
-  id: string;
-};
-
 export function useRoom(roomId: string | undefined) {
-  const { user } = useAuth();
-
   const [currentRoom, setCurrentRoom] = useState<CurrentRoomProps>();
 
   useEffect(() => {

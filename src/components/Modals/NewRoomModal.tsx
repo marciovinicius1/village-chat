@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import kingIcon from "../../assets/svg/king.svg";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 
+import { firebase } from "../../services/firebase";
+import { getDatabase, ref, set } from "firebase/database";
 import { db } from "../../services/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -31,6 +33,11 @@ const Modals: React.FC = () => {
       amountOfAttack: 0,
       users: [],
     });
+
+    const userStatusDatabaseRef = firebase
+      .database()
+      .ref(`rooms/${roomRef.id}/${user.id}`)
+      .set(user);
 
     navigate(`/rooms/id/${roomRef.id}`);
   }

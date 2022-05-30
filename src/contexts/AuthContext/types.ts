@@ -1,4 +1,4 @@
-import { ReactNode, SetStateAction } from "react";
+import { ReactNode } from "react";
 
 export type AuthContextProps = {
   children: ReactNode;
@@ -13,13 +13,17 @@ export type AuthContextType = {
   userZombie: boolean;
   setUserZombie: (prop: boolean) => void;
 
+  status: string;
+  setStatus: (prop: string) => void;
+
   signIn: () => Promise<void>;
 
-  deleteCurrentUser: () => void;
+  deleteCurrentUser: () => Promise<void>;
 };
 
 export type User = {
   id: string;
   name: string;
   zombie: boolean;
+  status: string;
 };

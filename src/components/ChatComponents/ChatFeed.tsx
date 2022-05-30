@@ -4,6 +4,8 @@ import { useChat } from "../../hooks/useChat";
 import MainMessage from "./MainMessage";
 import OtherUsersMessage from "./OtherUsersMessage";
 
+import ScrollableFeed from "react-scrollable-feed";
+
 type ChatFeedProps = {
   roomId: string | undefined;
   adminId: string | undefined;
@@ -15,18 +17,20 @@ const ChatFeed: React.FC<ChatFeedProps> = (props) => {
   const { user } = useAuth();
 
   return (
-    <div>
-      {snapshotMessages?.map((msg) => {
-        const { id, authorMessageId, authorName, text } = msg;
-
-        if (user?.id == authorMessageId) {
-          return <MainMessage key={id} message={text} />;
+    <div className=" max-h-96 scroll-smooth px-4 py-2 overflow-x-hidden scroll-ml-2 scrollbar-thin scrollbar-thumb-p-lilac scrollbar-track-zinc-700">
+      {snapshotMessages?.map((msg, index) => {
+        const { authorMessageId, authorName, text } = msg;
+        if (authorMessageId == user?.id) {
+          return <MainMessage key={index} message={text} />;
         } else {
-          <OtherUsersMessage
-            message="Parabéns amigo voce e mto legal"
-            authorName={authorName}
-            adminId={adminId}
-          />;
+          return (
+            <OtherUsersMessage
+              key={index}
+              message={text}
+              authorName={authorName}
+              adminId={adminId}
+            />
+          );
         }
       })}
     </div>

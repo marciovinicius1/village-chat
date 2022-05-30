@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "bg-pattern": "url(./src/assets/svg/patternBg.svg)",
+        "bg-pattern": "url(src/assets/svg/patternBg.svg)",
       },
       colors: {
         grad: "hsla(229, 61%, 45%, 1)",

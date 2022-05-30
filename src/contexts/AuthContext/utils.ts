@@ -1,4 +1,5 @@
 import { User } from "./types";
+import { firebase } from "../../services/firebase";
 
 export function setUserLocalStorage(user: User | null) {
   localStorage.setItem("u", JSON.stringify(user));

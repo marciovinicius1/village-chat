@@ -7,10 +7,6 @@ import { useChat } from "../../hooks/useChat";
 import ChatFeed from "./ChatFeed";
 import MessageForm from "./MessageForm";
 
-// criar um hook com retorno do chat [X]
-// criar uma pagina de chat de admin [ ]
-// funcionalidade de likes na menságem [ ]
-
 export type CurrentRoomProps = {
   amountOfAtack: number;
   authorId: string;
@@ -36,7 +32,7 @@ const ChatSection: React.FC = () => {
   const { amountOfAttack, authorId, roomName, users } = useRoom(roomId);
 
   return (
-    <div>
+    <div className="max-h-100% p-2 w-full absolute bottom-0">
       <ChatFeed adminId={authorId} roomId={roomId} />
       <MessageForm amountOfAttack={amountOfAttack} roomId={roomId} />
     </div>

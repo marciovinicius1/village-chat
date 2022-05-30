@@ -1,21 +1,17 @@
-import {
-  createContext,
-  ReactNode,
-  useEffect,
-  useState,
-  SetStateAction,
-} from "react";
-import { auth, db } from "../../services/firebase";
-import { signInAnonymously } from "firebase/auth";
-import { getAuth, deleteUser } from "firebase/auth";
-import { firebase, database } from "../../services/firebase";
-import { collection, setDoc, doc } from "firebase/firestore";
+import { createContext, useEffect, useState } from "react";
+
+import { auth, db, firebase } from "../../services/firebase";
+import { signInAnonymously, signOut } from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+
 import { AuthContextType, AuthContextProps, User } from "./types";
 import { setUserLocalStorage, getUserLocalStorage } from "./utils";
+import useChangeStatusUser from "../../hooks/useChangeStatusUser";
 
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProps) {
+  const [status, setStatus] = useState<string>("online");
   const [user, setUser] = useState<User | undefined>();
   const [userName, setUserName] = useState<string>("");
   const [userZombie, setUserZombie] = useState<boolean>(false);
@@ -53,23 +49,38 @@ export function AuthContextProvider(props: AuthContextProps) {
         id: uid,
         name: userName,
         zombie: userZombie,
+        status,
       });
 
       setUserLocalStorage({
         id: uid,
         name: userName,
         zombie: userZombie,
+        status,
       });
 
-      const createUserDb = await setDoc(doc(db, "users", `${uid}`), {
+      setDoc(doc(db, "users", `${uid}`), {
+        uid,
         userName,
         userZombie,
+        status,
       });
+
+      const createUserOnRealtimeDatabase = firebase
+        .database()
+        .ref(`users/${uid}`)
+        .set({
+          uid,
+          userName,
+          userZombie,
+          status,
+        });
     }
   }
 
-  function deleteCurrentUser() {
+  async function deleteCurrentUser() {
     const currentUser = auth.currentUser;
+    await signOut(auth);
     currentUser?.delete();
     setUser(undefined);
   }
@@ -82,6 +93,8 @@ export function AuthContextProvider(props: AuthContextProps) {
         setUserName,
         userZombie,
         setUserZombie,
+        status,
+        setStatus,
         signIn,
         deleteCurrentUser,
       }}

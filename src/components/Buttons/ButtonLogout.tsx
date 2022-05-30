@@ -1,21 +1,33 @@
 import { ButtonHTMLAttributes } from "react";
 import { SignOut } from "phosphor-react";
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../services/firebase";
+import useChangeStatusUser from "../../hooks/useChangeStatusUser";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export function ButtonLogOut(props: ButtonProps) {
+type RoomParams = {
+  id: string;
+};
+
+export function ButtonLogOut(props: ButtonProps, attRoom: boolean) {
+  const params = useParams<RoomParams>();
+  const roomId = params.id;
+
   const { deleteCurrentUser } = useAuth();
   const navigation = useNavigate();
+  const { signOutStatusUser } = useChangeStatusUser(roomId);
 
   async function handleLogOut() {
-    deleteCurrentUser();
-    navigation("/");
+    await deleteCurrentUser()
+      .then(() => navigation("/"))
+      .then(() => signOutStatusUser());
   }
 
   return (
-    <div className=" fixed bottom-4 right-4 md:bottom-8 md:right-8  flex flex-col items-end">
+    <div className=" fixed bottom-4 right-4 md:bottom-8 md:right-8 flex-col items-end">
       <button
         onClick={() => handleLogOut()}
         className=" bg-p-lilac px-4 py-8 h-12 rounded-md shadow-xl text-p-white flex items-center group"
