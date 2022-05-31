@@ -24,12 +24,12 @@
 
 # <a id="Projeto"></a> **Projeto**
 
-### **No Village Chat temos 3 tipos de usuários:**
+## **No Village Chat temos 3 tipos de usuários:**
 
 <div style="display:flex;gap:20px;align-items:center">
 <img style="height:100px" alt="imagem do rei" title="imagem do rei" src="./github/king.png"></img>
 <section>
-<h2 style="font-weight:bold">👑| Os Reis </h2>
+<h3 style="font-weight:bold">👑| Os Reis </h3>
 <p>Os Reis, Eles são os criadores da sala, mais conhecidos como <b>Admins</b>, além de interagirem normalmente com os demais usuários, eles chat geralmente controlam os assuntos abordados na sua sala, mas nem sempre conseguem manter o controle, principalmente durante um ataque zumbi, onde infelizmente o rei deverá escolher um de seus cavaleiros para servir de sacrifício e assim manter a sala segura, caso o contrário sua sala será totalmente excluída.</p>
 </section>
 </div>
@@ -37,7 +37,7 @@
 <div style="display:flex;gap:20px;align-items:center">
 <img style="height:100px" alt="imagem cavaleiro" title="imagem cavaleiro" src="./github/knight.png"></img>
 <section>
-<h2 style="font-weight:bold">⚔️| Os Cavaleiros </h2>
+<h3 style="font-weight:bold">⚔️| Os Cavaleiros </h3>
 <p>Os cavaleiros, Estes são os verdadeiros nobres, apesar de não possuírem poderes além da interação comum na sala com o rei e os demais usuários, ao servirem de sacrifício eles salvam a sala e seus demais companheiros da ruina. ( Importante para o rei manter uma boa relação de amizade e saber administrar sua relação com os demais cavaleiros, uma vez que a quantidade de usúarios na sala e determinante para que ela sobreviva as hordas zumbís) .</p>
 </section>
 </div>
@@ -45,7 +45,7 @@
 <div style="display:flex;gap:20px;align-items:center">
 <img style="height:100px" alt="imagem zumbi" title="imagem zumbi" src="./github/zombie.png"></img>
 <section>
-<h2 style="font-weight:bold">🧟| Os Zumbis </h2>
+<h3 style="font-weight:bold">🧟| Os Zumbis </h3>
 <p>Os Zumbís, pouco se sabe sobre eles, oque sabemos até agora é que não conseguem se comunicar com humanos, estes temidos usuários além de ficarem de olho em nossas conversas, ficam a espreita esperando uma perfeita oportunidade para atacar a sala assim excluindo-a junto ao rei e  todos seus cavaleiros cavaleiros, portanto tente não irritá-los. como fazer isso ?, infelizmente é uma pergunta que ainda não temos resposta. mas nossa equipe está empenhada em resolver esse problema o quanto antes.</p>
 </section>
 </div>
