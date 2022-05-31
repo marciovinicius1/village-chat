@@ -1,4 +1,4 @@
-<div style="color:red;display:flex;justify-content:center;align-items:center;flex-direction:column;">
+<div style="align:center;color:red;display:flex;justify-content:center;align-items:center;flex-direction:column;">
 <h3 style="font-weight:bold">⚠️ PROJETO AINDA EN DANDAMENTO ⚠️<h3>
 <img alt="header" title="header" src="https://progress-bar.dev/50/?title=Progresso">
 </br>
@@ -100,7 +100,6 @@ Rxjs | Atropos | HeadlessUI | Phosphor-react
 
 ---
 
-Feito com ♥ by marciovinicius1 🍂 [Vamos nos conectar no Linkedin?](https://www.linkedin.com/in/marciovinicius1/)
 <br>
 <br>
 
