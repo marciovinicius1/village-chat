@@ -3,6 +3,17 @@
 <img alt="header" title="header" src="https://progress-bar.dev/50/?title=Progresso">
 </br>
 </div>
+
+---
+
+<p align="center">
+  <a style="color:#F806CC;font-weight:bold" href="#Projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a style="color:#F806CC;font-weight:bold" href="#Desenvolvimento">Desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a style="color:#F806CC;font-weight:bold" href="#Features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a style="color:#F806CC;font-weight:bold"
+  href="#Extras">Extras</a>&nbsp;&nbsp;&nbsp;
+</p>
+
 <img alt="header" title="header" src="./github/header.gif">
 
 ### 💬 **Uma aplicação react de chat em tempo real com uma experiencia gamificada onde os usuários são totalmente anônimos.**
@@ -11,7 +22,7 @@
 
 <br><br>
 
-# **Projeto**
+# <a id="Projeto"></a> **Projeto**
 
 ### **No Village Chat temos 3 tipos de usuários:**
 
@@ -41,7 +52,7 @@
 
 <br><br>
 
-# **Desnvolvimento**
+# <a id="Desenvolvimento"></a> **Desenvolvimento**
 
 ### **Sobre**:
 
@@ -62,7 +73,7 @@ Rxjs | Atropos | HeadlessUI | Phosphor-react
 <br>
 <br>
 
-# **Features**:
+# <a id="Features"></a>**Features**:
 
 #### **📢 | As features listadas a baixo podem sofrer alteraçoes diversas, como a aplicaçao ainda está em fase de desenvolvimento nenhuma delas é definitiva ou possui previsão e nem ordem de chegada.**
 
@@ -81,15 +92,17 @@ Rxjs | Atropos | HeadlessUI | Phosphor-react
 <br>
 <br>
 
-# **Extra**
+# <a id="Extras"></a>**Extras**
 
-## **WireFrames**
+### **WireFrames**
 
 <img alt="imagem de wireframes" title="wireframes" src="./github/wireframes.png"></img>
 
 ---
 
+Feito com ♥ by marciovinicius1 🍂 [Vamos nos conectar no Linkedin?](https://www.linkedin.com/in/marciovinicius1/)
 <br>
 <br>
 
 <img alt="rodapé" title="rodapé" src="./github/footer.png"></img>
+Feito com ♥ by marciovinicius1 🍂 [Vamos nos conectar no Linkedin?](https://www.linkedin.com/in/marciovinicius1/)
