@@ -1,5 +1,5 @@
 <div style="align:center;color:red;display:flex;justify-content:center;align-items:center;flex-direction:column;">
-<h3 style="font-weight:bold">⚠️ PROJETO AINDA EN DANDAMENTO ⚠️<h3>
+<h3 style="font-weight:bold">⚠️ PROJETO AINDA EM DESENVOLVIMENTO ⚠️<h3>
 <img alt="header" title="header" src="https://progress-bar.dev/50/?title=Progresso">
 </br>
 </div>
