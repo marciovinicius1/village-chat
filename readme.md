@@ -62,7 +62,7 @@ Esta é uma aplicaçao react de chat em tempo real com uma experiencia gamificad
 
 ### **Linguagens**:
 
-Typescript | Html | Css
+Typescript | HTML | CSS
 
 ### **Tecnologias**:
 
@@ -85,7 +85,7 @@ Rxjs | Atropos | HeadlessUI | Phosphor-react
 
 #### **✅Chat em tempo real**
 
-#### **⬜Acessibilidade**
+#### **✅Acessibilidade**
 
 #### **⬜Atualizações de segurança**
 
