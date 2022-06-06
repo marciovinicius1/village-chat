@@ -18,7 +18,7 @@ export type AuthContextType = {
 
   signIn: () => Promise<void>;
 
-  deleteCurrentUser: () => Promise<void>;
+  deleteCurrentUser: (roomId: string | undefined) => Promise<void>;
 };
 
 export type User = {

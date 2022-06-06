@@ -2,7 +2,6 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { User } from "../contexts/AuthContext/types";
 import { db } from "../services/firebase";
-import { useAuth } from "./useAuth";
 
 export type CurrentRoomProps = {
   amountOfAttack: number;

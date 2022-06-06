@@ -2,9 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 import { SignOut } from "phosphor-react";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate, useParams } from "react-router-dom";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { db } from "../../services/firebase";
-import useChangeStatusUser from "../../hooks/useChangeStatusUser";
+import { useChangeStatusUser } from "../../hooks/useChangeStatusUser";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -21,9 +19,9 @@ export function ButtonLogOut(props: ButtonProps, attRoom: boolean) {
   const { signOutStatusUser } = useChangeStatusUser(roomId);
 
   async function handleLogOut() {
-    await deleteCurrentUser()
-      .then(() => navigation("/"))
-      .then(() => signOutStatusUser());
+    deleteCurrentUser(roomId);
+    navigation("/");
+    signOutStatusUser();
   }
 
   return (

@@ -7,13 +7,11 @@ import { Switch } from "@headlessui/react";
 import zombieIcon from "../../assets/svg/zombie.svg";
 import knightIcon from "../../assets/svg/knight.svg";
 
-type CreateUserModalProps = {
+type JoinRoomProps = {
   navigateToSelectChatList: () => void;
 };
 
-const CreateUserModal: React.FC<CreateUserModalProps> = ({
-  navigateToSelectChatList,
-}) => {
+const JoinRoom: React.FC<JoinRoomProps> = ({ navigateToSelectChatList }) => {
   const { user, userName, setUserName, userZombie, setUserZombie, signIn } =
     useAuth();
 
@@ -27,7 +25,6 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
     if (!user) {
       await signIn().then(navigateToSelectChatList);
     } else {
-      console.log(user);
       navigateToSelectChatList();
     }
   }
@@ -57,7 +54,7 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
             <label className="font-bold text-p-white text-2xl mb-2">
               Escolha seu lado
             </label>
-            <div className="py-12 flex items-center gap-4">
+            <div className="py-4 flex items-center gap-4">
               <img
                 src={knightIcon}
                 alt="Icone de cavaleiro"
@@ -92,4 +89,4 @@ const CreateUserModal: React.FC<CreateUserModalProps> = ({
   );
 };
 
-export default CreateUserModal;
+export default JoinRoom;

@@ -5,7 +5,6 @@ import kingIcon from "../../assets/svg/king.svg";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 
 import { firebase } from "../../services/firebase";
-import { getDatabase, ref, set } from "firebase/database";
 import { db } from "../../services/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -34,6 +33,7 @@ const Modals: React.FC = () => {
       users: [],
     });
 
+    //realtimeDatabase
     const userStatusDatabaseRef = firebase
       .database()
       .ref(`rooms/${roomRef.id}/${user.id}`)

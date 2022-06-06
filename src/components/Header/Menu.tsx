@@ -1,12 +1,19 @@
 import * as React from "react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import { Menu } from "@headlessui/react";
 
-import { List, Users, Chats, SignOut, Sword } from "phosphor-react";
+import { List, Users, Chats, SignOut, Activity } from "phosphor-react";
+
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
 import SelectChatRoomModal from "../Modals/SelectChatRoomModal";
+import UserListOnRoomModal from "../Modals/UserListOnRoomModal";
+
+type RoomParams = {
+  id: string;
+};
 
 const NavigationChatRoom: React.FC = () => {
   const { deleteCurrentUser } = useAuth();
@@ -14,17 +21,27 @@ const NavigationChatRoom: React.FC = () => {
   const [isChatListModalOpen, setIsChatListModalOpen] =
     useState<boolean>(false);
 
+  const [isUserListModalOpen, setIsUserListModalOpen] =
+    useState<boolean>(false);
+
+  const param = useParams<RoomParams>();
+  const roomId = param.id;
+
   function toggleChatListModal() {
     setIsChatListModalOpen(!isChatListModalOpen);
   }
 
+  function toggleUserListModal() {
+    setIsUserListModalOpen(!isUserListModalOpen);
+  }
+
   function handleLogOut() {
-    deleteCurrentUser();
+    deleteCurrentUser(roomId);
     navigation("/");
   }
 
   return (
-    <div className="absolute right-0 z-10 mt-4 mr-4">
+    <div className="absolute right-0 z-10 mt-4 mr-4 lg:hidden">
       <Menu as="div" className="relative inline-block">
         <div>
           <Menu.Button>
@@ -38,12 +55,15 @@ const NavigationChatRoom: React.FC = () => {
           <div className="p-1 flex flex-col gap-1">
             <Menu.Item>
               <button className="bg-p-lilac rounded-md p-2 flex justify-center gap-2 font-bold text-p-white group hover:opacity-100 hover:text-p-yellow  focus:text-p-yellow">
-                <Sword weight="bold" size={20} color="#FFD83B" />
-                Campo de batalha
+                <Activity weight="bold" size={20} color="#FFD83B" />
+                Detalhes da sala
               </button>
             </Menu.Item>
             <Menu.Item>
-              <button className="bg-p-lilac rounded-md p-2 flex justify-center gap-2 font-bold text-p-white group hover:opacity-100 hover:text-p-yellow focus:opacity-100 focus:text-p-yellow">
+              <button
+                onClick={toggleUserListModal}
+                className="bg-p-lilac rounded-md p-2 flex justify-center gap-2 font-bold text-p-white group hover:opacity-100 hover:text-p-yellow focus:opacity-100 focus:text-p-yellow"
+              >
                 <Users weight="bold" size={20} color="#FFD83B" />
                 Usuários na sala
               </button>
@@ -75,6 +95,10 @@ const NavigationChatRoom: React.FC = () => {
       <SelectChatRoomModal
         isChatListModalOpenState={isChatListModalOpen}
         setIsChatListModalOpenFunction={toggleChatListModal}
+      />
+      <UserListOnRoomModal
+        isUserListModalOpenState={isUserListModalOpen}
+        setIsUserListModalOpenFunction={toggleUserListModal}
       />
     </div>
   );

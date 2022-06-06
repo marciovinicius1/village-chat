@@ -1,43 +1,53 @@
-import { ShieldWarning } from "phosphor-react";
+import { SignOut, Chats, ArrowSquareOut } from "phosphor-react";
 import React from "react";
-import { Fill } from "styled-icons/fa-solid";
+import { useNavigate, useParams } from "react-router-dom";
 
+import logoVillageIcon from "../../assets/svg/logovillage.svg";
 import handsIcon from "../../assets/svg/hands.svg";
 import swordsIcon from "../../assets/svg/sword.svg";
 import vsIcon from "../../assets/svg/vs.svg";
+import { useAuth } from "../../hooks/useAuth";
+import { useChangeStatusUser } from "../../hooks/useChangeStatusUser";
 
 import Menu from "./Menu";
 
+type RoomParams = {
+  id: string;
+};
+
 const Header: React.FC = () => {
+  const params = useParams<RoomParams>();
+  const roomId = params.id;
+
+  const { deleteCurrentUser } = useAuth();
+  const navigation = useNavigate();
+  const { signOutStatusUser } = useChangeStatusUser(roomId);
+
+  async function handleLogOut() {
+    deleteCurrentUser(roomId);
+    navigation("/");
+    signOutStatusUser();
+  }
+
   return (
-    <div className="absolute bg-zinc-800 shadow-xl h-16 w-full flex ">
-      <div className=" h-10 w-36 bg-zinc-600 shadow-md rounded-md self-center ml-2 flex items-center justify-center text-xl font-bold text-p-gray">
-        <img
-          src={swordsIcon}
-          alt="Icone espadas representando cavaleiros"
-          className="h-6 m-1"
-        />
-        12
-        <img src={vsIcon} className="h-6 mx-2" />
-        4
-        <img
-          src={handsIcon}
-          alt="Icone mãos representando de zumbi"
-          className="h-6"
-        />
-      </div>
-      <div className=" h-10 w-12 bg-zinc-600 shadow-md rounded-md self-center ml-2 flex items-center justify-center text-xl font-bold text-p-gray">
-        <ShieldWarning size={32} weight="bold" />
+    <div className="absolute bg-gradient-to-r from-p-lilac to-p-purple shadow-xl h-16 w-full flex justify-between px-4 ">
+      <img src={logoVillageIcon} alt="" className="h-12 self-center " />
+      <div className="flex">
+        <button className="hidden lg:flex h-10 w-auto p-2 bg-p-lilacDark bg-opacity-60 shadow-md rounded-md self-center ml-2 items-center justify-center text-lg font-bold text-p-white group">
+          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 truncate text-p-yellow group-hover:mr-2">
+            Mudar de sala
+          </span>
+          <ArrowSquareOut size={32} weight="bold" />
+        </button>
+
+        <button className="hidden lg:flex h-10 w-auto p-2 bg-p-lilacDark bg-opacity-60 shadow-md rounded-md self-center ml-2 items-center justify-center text-lg font-bold text-p-white group">
+          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 text-red-500 opacity-100 group-hover:mr-2">
+            Sair
+          </span>
+          <SignOut size={32} weight="bold" />
+        </button>
       </div>
 
-      <div className=" hidden sm:flex items-center ml-2">
-        <h1 className="text-lg font-bold text-p-white leading-none truncate">
-          <span className="text-sm font-semibold text-zinc-500">
-            Nome da sala: <br />
-          </span>
-          Comedores de esfirra.
-        </h1>
-      </div>
       <Menu />
     </div>
   );

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { firebase } from "../services/firebase";
 
 import { fromEvent, throttleTime, timer } from "rxjs";
@@ -8,7 +6,6 @@ import { useAuth } from "./useAuth";
 export function useChangeStatusUser(roomId: string | undefined) {
   const { user } = useAuth();
   const uid = user?.id;
-  const [unsubscribeStatus, setUnsuscribeStatus] = useState<boolean>(false);
 
   function updateStatus(status: string) {
     if (!uid) return;
@@ -57,21 +54,13 @@ export function useChangeStatusUser(roomId: string | undefined) {
         updateStatus("away");
       });
       if (subscriptionTimer) {
-        subscriptionTimer.unsubscribe();
+        subscriptionTimer.unsubscribe;
       }
-      if (unsubscribeStatus) {
-        subscriptionTimer.unsubscribe();
-      }
-    }
-
-    if (unsubscribeStatus) {
-      mouseMoveSubscription.unsubscribe();
     }
   }
 
   function signOutStatusUser() {
     updateStatus("offline");
-    setUnsuscribeStatus(true);
   }
 
   return {
@@ -82,5 +71,3 @@ export function useChangeStatusUser(roomId: string | undefined) {
     signOutStatusUser,
   };
 }
-
-export default useChangeStatusUser;

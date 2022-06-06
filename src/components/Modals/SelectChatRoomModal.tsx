@@ -70,7 +70,7 @@ const SelectChatRoomModal: React.FC<SelectChatRoomModalProps> = ({
           />
           <ModalWrapper ToggleModalFunciton={setIsChatListModalOpenFunction}>
             <h1 className="text-2xl font-bold text-p-white mb-2">
-              Selecione uma sala:
+              Selecione uma sala
             </h1>
             <div>
               <div className="max-h-96 overflow-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-p-lilac scrollbar-track-zinc-700  ">
@@ -88,7 +88,6 @@ const SelectChatRoomModal: React.FC<SelectChatRoomModalProps> = ({
           </ModalWrapper>
         </Dialog.Panel>
       </Dialog>
-      <ButtonLogOut />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { useParams } from "react-router-dom";
 import { useRoom } from "../../hooks/useRoom";
@@ -32,7 +32,7 @@ const ChatSection: React.FC = () => {
   const { amountOfAttack, authorId, roomName, users } = useRoom(roomId);
 
   return (
-    <div className="max-h-100% p-2 w-full absolute bottom-0">
+    <div className=" bg-p-dark-500 h-full lg:w-4/6 p-2 w-full flex flex-col justify-end">
       <ChatFeed adminId={authorId} roomId={roomId} />
       <MessageForm amountOfAttack={amountOfAttack} roomId={roomId} />
     </div>

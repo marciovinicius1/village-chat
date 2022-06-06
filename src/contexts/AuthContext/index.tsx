@@ -6,7 +6,12 @@ import { setDoc, doc } from "firebase/firestore";
 
 import { AuthContextType, AuthContextProps, User } from "./types";
 import { setUserLocalStorage, getUserLocalStorage } from "./utils";
-import useChangeStatusUser from "../../hooks/useChangeStatusUser";
+import { useChangeStatusUser } from "../../hooks/useChangeStatusUser";
+import { useParams } from "react-router-dom";
+
+type RoomParams = {
+  id: string;
+};
 
 export const AuthContext = createContext({} as AuthContextType);
 
@@ -15,6 +20,9 @@ export function AuthContextProvider(props: AuthContextProps) {
   const [user, setUser] = useState<User | undefined>();
   const [userName, setUserName] = useState<string>("");
   const [userZombie, setUserZombie] = useState<boolean>(false);
+  const param = useParams<RoomParams>();
+  const roomId = param.id;
+  const { updateOnConnect } = useChangeStatusUser(roomId);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -76,13 +84,19 @@ export function AuthContextProvider(props: AuthContextProps) {
           status,
         });
     }
+    updateOnConnect();
   }
 
-  async function deleteCurrentUser() {
+  function deleteUserAtRoomRealtimeDatabase(roomId: string | undefined) {
+    firebase.database().ref(`rooms/${roomId}/${user?.id}`).remove();
+  }
+
+  async function deleteCurrentUser(roomId: string | undefined) {
     const currentUser = auth.currentUser;
     await signOut(auth);
     currentUser?.delete();
     setUser(undefined);
+    deleteUserAtRoomRealtimeDatabase(roomId);
   }
 
   return (

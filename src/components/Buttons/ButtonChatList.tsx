@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useAuth } from "../../hooks/useAuth";
 
-import { firebase } from "../../services/firebase";
-
 import { db } from "../../services/firebase";
 
 type ChatButtonProps = {

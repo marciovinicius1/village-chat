@@ -48,10 +48,10 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
   }
 
   return (
-    <>
+    <div className="">
       <form className="flex h-fit" onSubmit={handleSendMessage}>
         <textarea
-          className="h-20 w-5/6 mx-2 p-2 rounded-md text-sm font-bold bg-p-gray  hover:bg-p-white disabled:bg-zinc-400 disabled:placeholder:text-zinc-700 focus:border-p-yellow focus:ring-p-yellow focus:ring-4 ring focus:outline-none resize-none scrollbar-thin  scrollbar-thumb-p-lilac scrollbar-track-transparent "
+          className=" min-h-20 h-full w-full mx-2 p-2 rounded-md text-sm font-bold bg-p-gray  hover:bg-p-white disabled:bg-zinc-400 disabled:placeholder:text-zinc-700 focus:border-p-yellow focus:ring-p-yellow focus:ring-4 ring focus:outline-none resize-none scrollbar-thin  scrollbar-thumb-p-lilac scrollbar-track-transparent "
           placeholder={
             user?.zombie === true
               ? "Zumbis sabem Falar! 🚫"
@@ -63,7 +63,7 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
         {user?.zombie === true ? (
           <button
             onClick={handleAttackChat}
-            className="rounded-md bg-p-lilac w-1/6 h-20 flex items-center justify-center"
+            className="rounded-md bg-p-lilac w-1/6 min-h-20 flex items-center justify-center"
             disabled //attackhasSend
           >
             <FireSimple
@@ -76,7 +76,7 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
         ) : (
           <button
             type="submit"
-            className="rounded-md bg-p-lilac w-1/6 h-20 flex items-center justify-center disabled:bg-opacity-60 transition-colors duration-150"
+            className="rounded-md bg-p-lilac w-1/6 min-h-20 flex items-center justify-center disabled:bg-p-lilacDark transition-colors duration-150"
             disabled={message.length === 0}
           >
             <PaperPlaneTilt
@@ -88,7 +88,7 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
           </button>
         )}
       </form>
-    </>
+    </div>
   );
 };
 

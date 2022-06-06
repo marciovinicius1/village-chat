@@ -1,11 +1,10 @@
-import React, { useState, Fragment } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 
 import swordIcon from "../../assets/svg/sword.svg";
 
-import CreateUserModal from "../../components/Modals/CreateUserModal";
+import JoinRoomModal from "../../components/Modals/JoinRoomModal";
 import ModalWrapper from "../../components/Modals/Wrapper/ModalWrapper";
 import SelectChatRoomModal from "../Modals/SelectChatRoomModal";
 
@@ -53,7 +52,7 @@ const ButtonCreateRoom: React.FC = () => {
             onClick={closeModal}
           />
           <ModalWrapper ToggleModalFunciton={closeModal}>
-            <CreateUserModal navigateToSelectChatList={toggleChatListModal} />
+            <JoinRoomModal navigateToSelectChatList={toggleChatListModal} />
           </ModalWrapper>
         </Dialog.Panel>
       </Dialog>

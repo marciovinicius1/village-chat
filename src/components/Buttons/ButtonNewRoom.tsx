@@ -1,20 +1,27 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { db } from "../../services/firebase";
 
 import kingIcon from "../../assets/svg/king.svg";
 
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 
 import ModalWrapper from "../Modals/Wrapper/ModalWrapper";
 import NewRoomModal from "../Modals/NewRoomModal";
+
+type RoomParams = {
+  id: string;
+};
 
 const ButtonCreateRoom: React.FC = () => {
   const navigate = useNavigate();
   const { user, deleteCurrentUser } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const param = useParams<RoomParams>();
+  const roomId = param.id;
 
   function closeModal() {
     setIsModalOpen(!isModalOpen);
@@ -35,7 +42,7 @@ const ButtonCreateRoom: React.FC = () => {
       const idUserRoom = parsedRoom[0];
 
       if (idUserRoom == undefined) {
-        deleteCurrentUser();
+        deleteCurrentUser(roomId);
         setIsModalOpen(!isModalOpen);
       } else {
         navigate(`/rooms/id/${idUserRoom}`);

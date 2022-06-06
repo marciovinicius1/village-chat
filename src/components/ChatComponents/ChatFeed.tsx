@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useChat } from "../../hooks/useChat";
 import MainMessage from "./MainMessage";
 import OtherUsersMessage from "./OtherUsersMessage";
-
-import ScrollableFeed from "react-scrollable-feed";
 
 type ChatFeedProps = {
   roomId: string | undefined;
@@ -16,8 +14,14 @@ const ChatFeed: React.FC<ChatFeedProps> = (props) => {
   const { snapshotMessages } = useChat(roomId);
   const { user } = useAuth();
 
+  const messageEndRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView();
+  }, [snapshotMessages]);
+
   return (
-    <div className=" max-h-96 scroll-smooth px-4 py-2 overflow-x-hidden scroll-ml-2 scrollbar-thin scrollbar-thumb-p-lilac scrollbar-track-zinc-700">
+    <div className="h-full scroll-smooth px-4 py-2 mb-2 overflow-x-hidden scroll-ml-2 scrollbar-thin scrollbar-thumb-p-lilac scrollbar-track-zinc-700">
       {snapshotMessages?.map((msg, index) => {
         const { authorMessageId, authorName, text } = msg;
         if (authorMessageId == user?.id) {
@@ -33,6 +37,8 @@ const ChatFeed: React.FC<ChatFeedProps> = (props) => {
           );
         }
       })}
+
+      <div ref={messageEndRef} />
     </div>
   );
 };
